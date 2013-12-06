@@ -23,7 +23,7 @@ Adafruit lib. for OLED screen & DHT 22 temp./hum. sensor used
   DHT dht(DHTPIN, DHTTYPE);
 
   //const int minFanPWM = 150 ;// Use logic level mosFETs. Vtreshhold: 3-4Volts. Othervise use Drivers (Darlington). 
-                             //No need for powerfull drivers -it's not time based operationProbably npn bjt will work just fine
+                               //No need for powerfull drivers -it's not time based operationProbably NPN BJT will work just fine
 
   int pumpPin = 3;           //pump PWM pin 
   int fan1Pin = 5;           // 5 & 6  PWM pins share same timer so will be in use for two fans
@@ -63,7 +63,7 @@ Adafruit lib. for OLED screen & DHT 22 temp./hum. sensor used
         float speedAdj = (255 / 1024) * pot;
         analogWrite(fan1Pin, speedAdj ) ;  
         analogWrite(fan2Pin, speedAdj );
-        analogWrite(pumpPin, speedAdj0;
+        analogWrite(pumpPin, speedAdj );
        }
    else // if value of pot < 10 then turn fans off
       analogWrite(fan1Pin,0);
