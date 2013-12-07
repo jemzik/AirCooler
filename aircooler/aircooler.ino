@@ -34,9 +34,9 @@ Adafruit lib. for OLED screen & DHT 22 temp./hum. sensor used
     dht.begin(); // temperature sensor initialization
     display.begin(); //?????
     display.clearDisplay();//not sure about this line TEST IT
-    pinMode(pumpPin,OUTPUT);
-    pinMode(fan1Pin,OUTPUT);
-    pinMode(fan2Pin,OUTPUT);
+    //pinMode(pumpPin,OUTPUT);
+    //pinMode(fan1Pin,OUTPUT);
+    //pinMode(fan2Pin,OUTPUT);
   
   //analogWrite(pumpPin, HIGH);//pump water in to radiator for half minute
   //delay(30000); 
@@ -67,6 +67,7 @@ Adafruit lib. for OLED screen & DHT 22 temp./hum. sensor used
    else // if value of pot < 10 then turn fans off
       analogWrite(fan1Pin,0);
       analogWrite(fan2Pin,0);
+      analogWrite(pumpPin,0);
   
   //display loop
   display.setTextSize(1);
