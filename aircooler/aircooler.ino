@@ -18,17 +18,16 @@ Adafruit lib. for OLED screen & DHT 22 temp./hum. sensor used
   #define OLED_CLK 10
   #define OLED_MOSI 9
   #define OLED_RESET 13
-
+  #define pumpPin 3
+  #define fan1Pin 5
+  #define fan2Pin 6
   Adafruit_SSD1306 display(OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);// ????
   DHT dht(DHTPIN, DHTTYPE);
 
   //const int minFanPWM = 150 ;// Use logic level mosFETs. Vtreshhold: 3-4Volts. Othervise use Drivers (Darlington). 
                                //No need for powerfull drivers -it's not time based operationProbably NPN BJT will work just fine
 
-  int pumpPin = 3;           //pump PWM pin 
-  int fan1Pin = 5;           // 5 & 6  PWM pins share same timer so will be in use for two fans
-  int fan2Pin = 6;
-
+  
   void setup()   
   {                
     Serial.begin(9600);
