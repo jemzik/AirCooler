@@ -11,16 +11,16 @@ Adafruit lib. for OLED screen & DHT 22 temp./hum. sensor used
   #include <Adafruit_SSD1306.h>
   #include <DHT.h>
 
-  #define DHTPIN 4 
+  #define DHTPIN 44 
   #define DHTTYPE DHT22
   #define OLED_DC 11
   #define OLED_CS 12
   #define OLED_CLK 10
   #define OLED_MOSI 9
   #define OLED_RESET 13
-  #define pumpPin 3
-  #define fan1Pin 5
-  #define fan2Pin 6
+  #define pumpPin 2
+  #define fan1Pin 3
+  #define fan2Pin 4
   Adafruit_SSD1306 display(OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);// ????
   DHT dht(DHTPIN, DHTTYPE);
 
@@ -59,10 +59,12 @@ Adafruit lib. for OLED screen & DHT 22 temp./hum. sensor used
     // this method gives us abbility to use full spectrum of potentiometer due to treshold of MOSFET 
     if(pot >= 10 && pot <=1023)   // start value 10 just to reduce chances of nioce or pot instability tu turn fans on
        {
-        float speedAdj = (255 / 1024) * pot;
-        analogWrite(fan1Pin, speedAdj ) ;  
-        analogWrite(fan2Pin, speedAdj );
-        analogWrite(pumpPin, speedAdj );
+       
+        analogWrite(fan1Pin, pot/4 );  
+        
+        analogWrite(fan2Pin, pot/4 );
+       
+        analogWrite(pumpPin, pot/4 );
        }
    else // if value of pot < 10 then turn fans off
       analogWrite(fan1Pin,0);
@@ -85,7 +87,7 @@ Adafruit lib. for OLED screen & DHT 22 temp./hum. sensor used
   display.println(h);
   display.display();
   display.clearDisplay();
-  delay(500);
+  delay(50);
   }
   
   // measure temperature in water tank & radiator
